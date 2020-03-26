@@ -1,14 +1,17 @@
-package com.example.mychallange
+package com.example.mychallange.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mychallange.R
+import com.example.mychallange.adapters.ChallengeAdapter
+import com.example.mychallange.json.MockedJson
+import com.example.mychallange.models.Establishment
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -22,7 +25,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         val viewManager = LinearLayoutManager(this)
-        val viewAdapter = ChallengeAdapter(getEstablishmentsFromJson())
+        val viewAdapter = ChallengeAdapter(
+            getEstablishmentsFromJson()
+        )
 
         recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
             setHasFixedSize(true)
@@ -37,7 +42,6 @@ class MainActivity : AppCompatActivity() {
     private fun getEstablishmentsFromJson(): MutableList<Establishment>{
         val gson = Gson()
         val establishmentType = object: TypeToken<MutableList<Establishment>>() {}.type
-
         return gson.fromJson(MockedJson.json, establishmentType)
     }
 }

@@ -1,4 +1,4 @@
-package com.example.mychallange
+package com.example.mychallange.json
 
 object MockedJson {
     val json = "[\n" +

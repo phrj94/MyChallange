@@ -1,9 +1,12 @@
-package com.example.mychallange
+package com.example.mychallange.adapters
 
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mychallange.viewholders.ChallengeViewHolder
+import com.example.mychallange.models.Establishment
+import com.example.mychallange.R
 
 class ChallengeAdapter(private val list: List<Establishment>): RecyclerView.Adapter<ChallengeViewHolder>() {
 

@@ -1,4 +1,4 @@
-package com.example.mychallange
+package com.example.mychallange.models
 
  data class Establishment (
     var name: String? = null,
